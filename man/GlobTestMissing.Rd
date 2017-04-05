@@ -36,5 +36,5 @@ X2[sample(1:(n2*d), tau * (n2*d))] = NA
 GlobTestMissing(X1, X2, nperm=100)
 }
 \author{
-Klaus Jung \email{Klaus.Jung@ams.med.uni-goettingen.de}
+Klaus Jung
 }

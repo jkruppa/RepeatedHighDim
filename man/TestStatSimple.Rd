@@ -39,10 +39,10 @@ summary(RHD)
 }
 \references{
 \itemize{
-\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
-	\item{Jung K, Dihazi H, Bibi A, Dihazi GH and Beissbarth T (2014): Adaption of the Global Test Idea to Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30.}
-	\item{Kruppa J, Kramer K, Beissbarth T and Jung K (2016): A simulation framework for correlated count data of feature subsets in high-throughput sequencing or proteomics experiments. Statistical Applications in Genetics and Molecular Biology, 15, 401-414}
+\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
+	\item Jung K, Dihazi H, Bibi A, Dihazi GH and Beissbarth T (2014): Adaption of the Global Test Idea to Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30. 
+	\item Kruppa J, Kramer K, Beissbarth T and Jung K (2016): A simulation framework for correlated count data of feature subsets in high-throughput sequencing or proteomics experiments. Statistical Applications in Genetics and Molecular Biology, 15, 401-414
 }
 }
 \author{

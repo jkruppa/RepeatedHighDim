@@ -18,10 +18,10 @@
 ##' @author Klaus Jung
 ##' @references
 ##' \itemize{
-##'	\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-##'	\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
-##' 	\item{Jung K, Dihazi H, Bibi A, Dihazi GH and Beissbarth T (2014): Adaption of the Global Test Idea to Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30.}
-##' 	\item{Kruppa J, Kramer K, Beissbarth T and Jung K (2016): A simulation framework for correlated count data of feature subsets in high-throughput sequencing or proteomics experiments. Statistical Applications in Genetics and Molecular Biology, 15, 401-414}
+##'	\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+##'	\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
+##' 	\item Jung K, Dihazi H, Bibi A, Dihazi GH and Beissbarth T (2014): Adaption of the Global Test Idea to Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30. 
+##' 	\item Kruppa J, Kramer K, Beissbarth T and Jung K (2016): A simulation framework for correlated count data of feature subsets in high-throughput sequencing or proteomics experiments. Statistical Applications in Genetics and Molecular Biology, 15, 401-414
 ##' }
 ##' @export
 ##' @examples
@@ -74,8 +74,8 @@ TestStatSimple <- function(Y, H) {
 ##' @author Klaus Jung
 ##' @references
 ##' \itemize{
-##'	\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-##'	\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
+##'	\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+##'	\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
 ##' }
 ##' @examples
 ##' ###### Global comparison of a set of 100 genes between two experimental groups.
@@ -155,11 +155,11 @@ TestStatSP <- function(Y1, Y2) {
 ##' @param paired FALSE if samples are unpaired, TRUE if samples are paired.
 ##' @return An object that contains the test results. Contents can be displayed by the summary function.
 ##' @export
-##' @author Klaus Jung \email{Klaus.Jung@@ams.med.uni-goettingen.de}
+##' @author Klaus Jung 
 ##' @references
 ##' \itemize{
-##'	\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-##'	\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
+##'	\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+##'	\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
 ##' }
 ##' @examples
 ##' ###### Global comparison of a set of 100 genes between two experimental groups.
@@ -205,8 +205,8 @@ RepeatedHighDim <- function(X1, X2, paired=TRUE) {
 ##' @author Klaus Jung 
 ##' @references
 ##' \itemize{
-##'	\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-##'	\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
+##'	\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+##'	\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
 ##' }
 ##' @examples
 ##' ###### Global comparison of a set of 100 genes between two experimental groups.
@@ -235,7 +235,7 @@ summary.RHD <-  function(object, ...) {
 ##' @param nperm Number of permutations.
 ##' @return The p-value of a permutation test.
 ##' @export
-##' @author Klaus Jung \email{Klaus.Jung@@ams.med.uni-goettingen.de}
+##' @author Klaus Jung
 ##' @examples
 ##' ###### Global comparison of a set of 100 proteins between two experimental groups,
 ##' ###### where (tau * 100) percent of expression levels are missing.

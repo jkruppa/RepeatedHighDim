@@ -31,10 +31,10 @@ summary(RHD)
 }
 \references{
 \itemize{
-\item{Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.}
-\item{Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.}
+\item Brunner, E (2009) Repeated measures under non-sphericity. Proceedings of the 6th St. Petersburg Workshop on Simulation, 605-609.
+\item Jung K, Becker B, Brunner B and Beissbarth T (2011) Comparison of Global Tests for Functional Gene Sets in Two-Group Designs and Selection of Potentially Effect-causing Genes. Bioinformatics, 27: 1377-1383.
 }
 }
 \author{
-Klaus Jung \email{Klaus.Jung@ams.med.uni-goettingen.de}
+Klaus Jung
 }
