@@ -6,8 +6,7 @@ Authors@R: as.person(c(
     "Klaus Jung <Klaus.Jung@tiho-hannover.de> [aut, cre]", 
     "Jochen Kruppa <Jochen.Kruppa@tiho-hannover.de> [aut]"
   ))
-Description: Global tests for expression data of high-dimensional sets of
-    molecular features.
+Description: RepeatedHighDim provides different functions for the construction and analysis of high-dimensional repeated measures data. Global test procedures for gene subsets from DNA microarray data or protein subsets from 2-D gel data are implemented in this package. Furthermore, functions for the construction of high-dimensional count data (e.g. gene subsets from RNA-seq) or correlated binary data are given.
 Depends:
 	R (>= 3.0.0)
 Imports:
