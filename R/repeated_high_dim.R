@@ -228,14 +228,25 @@ summary.RHD <-  function(object, ...) {
 
 ##' Detection of global group effect
 ##'
-##' Tests a global effect for a set of molecular features (e.g. genes, proteins,...) between the two groups of samples. Missing values are allowd in the expression data. Samples of the two groups are supposed to be unpaired.
+##' Tests a global effect for a set of molecular features (e.g. genes,
+##' proteins,...) between the two groups of samples. Missing values
+##' are allowd in the expression data. Samples of the two groups are
+##' supposed to be unpaired.
 ##' @title Detection of global group effect
-##' @param X1 Matrix of expression levels in first group. Rows represent features, columns represent samples.
-##' @param X2 Matrix of expression levels in second group. Rows represent features, columns represent samples.
+##' @param X1 Matrix of expression levels in first group. Rows
+##'   represent features, columns represent samples.
+##' @param X2 Matrix of expression levels in second group. Rows
+##'   represent features, columns represent samples.
 ##' @param nperm Number of permutations.
 ##' @return The p-value of a permutation test.
 ##' @export
 ##' @author Klaus Jung
+##' @references
+##' \itemize{
+##' \item Jung K, Dihazi H, Bibi A, Dihazi GH
+##'   and Beissbarth T (2014): Adaption of the Global Test Idea to
+##'   Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30
+##'   }
 ##' @examples
 ##' ###### Global comparison of a set of 100 proteins between two experimental groups,
 ##' ###### where (tau * 100) percent of expression levels are missing.
