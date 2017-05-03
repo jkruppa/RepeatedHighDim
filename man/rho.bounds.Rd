@@ -5,12 +5,12 @@
 \title{Calculate lower and upper the bounds for pairwise
   correlations}
 \usage{
-rho.bounds(R, p)
+rho.bounds(p, R = diag(length(p)))
 }
 \arguments{
-\item{R}{Correlation matrix}
-
 \item{p}{Vector of marginal frequencies}
+
+\item{R}{Correlation matrix}
 }
 \value{
 A list with three entries:
@@ -35,7 +35,7 @@ in Emrich and Piedmonte (1991).
 R <- diag(4)
 p <- c(0.1, 0.2, 0.4, 0.5)
 
-rho.bounds(R, p)
+rho.bounds(p, R)
 }
 \references{
 Emrich, L.J., Piedmonte, M.R.: A method for generating

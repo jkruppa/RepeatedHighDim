@@ -4,12 +4,12 @@
 \alias{start.matrix}
 \title{Setup of the start matrix}
 \usage{
-\method{start}{matrix}(p, n)
+\method{start}{matrix}(p, k)
 }
 \arguments{
 \item{p}{Marginal probabilities of the start matrix}
 
-\item{n}{Number of rows to be generated}
+\item{k}{Number of rows to be generated}
 }
 \value{
 A (n x p)-Matrix with with entries 0 and 1 according to
@@ -27,7 +27,7 @@ multiple decimal places, the number n of rows should be large (up
 to multiple thousand).
 }
 \examples{
-X0 <- start.matrix(n = 100, p = c(0.5, 0.6))
+X0 <- start.matrix(p = c(0.5, 0.6), k = 100)
 }
 \author{
 Jochen Kruppa, Klaus Jung

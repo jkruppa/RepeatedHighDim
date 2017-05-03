@@ -7,9 +7,11 @@
 GlobTestMissing(X1, X2, nperm = 100)
 }
 \arguments{
-\item{X1}{Matrix of expression levels in first group. Rows represent features, columns represent samples.}
+\item{X1}{Matrix of expression levels in first group. Rows
+represent features, columns represent samples.}
 
-\item{X2}{Matrix of expression levels in second group. Rows represent features, columns represent samples.}
+\item{X2}{Matrix of expression levels in second group. Rows
+represent features, columns represent samples.}
 
 \item{nperm}{Number of permutations.}
 }
@@ -20,7 +22,10 @@ The p-value of a permutation test.
 Detection of global group effect
 }
 \details{
-Tests a global effect for a set of molecular features (e.g. genes, proteins,...) between the two groups of samples. Missing values are allowd in the expression data. Samples of the two groups are supposed to be unpaired.
+Tests a global effect for a set of molecular features (e.g. genes,
+proteins,...) between the two groups of samples. Missing values
+are allowd in the expression data. Samples of the two groups are
+supposed to be unpaired.
 }
 \examples{
 ###### Global comparison of a set of 100 proteins between two experimental groups,
@@ -34,6 +39,13 @@ X2 = t(matrix(rnorm(n2*d, 0.1, 1), n2, d))
 X1[sample(1:(n1*d), tau * (n1*d))] = NA
 X2[sample(1:(n2*d), tau * (n2*d))] = NA
 GlobTestMissing(X1, X2, nperm=100)
+}
+\references{
+\itemize{
+\item Jung K, Dihazi H, Bibi A, Dihazi GH
+  and Beissbarth T (2014): Adaption of the Global Test Idea to
+  Proteomics Data with Missing Values. Bioinformatics, 30, 1424-30
+  }
 }
 \author{
 Klaus Jung
