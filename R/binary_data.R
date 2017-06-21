@@ -185,7 +185,8 @@ iter.matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
 ##' X <- iter.matrix(X0, R = diag(2))
 ##' sequence.probs(Xt = X)
 sequence.probs <- function(Xt) {
-  n = dim(Xt)[1]
+  n = dim(Xt$Xt)[1]
+  m = dim(Xt$Xt)[2]  
   binseq = rep("free", n)
   for (i in 1:n) {
     binseq_i = "F"
