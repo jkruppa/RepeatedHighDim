@@ -4,7 +4,7 @@
 \alias{GA.diagplot}
 \title{Diagnostic plot for comparison of two correlation matrices}
 \usage{
-GA.diagplot(R, Rt, eps = 0.05, col.method = "traficlight", color = c(0,
+GA.diagplot(R, Rt, eps = 0.05, col.method = "trafficlight", color = c(0,
   8), top = "")
 }
 \arguments{
@@ -14,15 +14,15 @@ GA.diagplot(R, Rt, eps = 0.05, col.method = "traficlight", color = c(0,
 algorithm}
 
 \item{eps}{Permitted difference between the entries of two
-matrices. Must only be specified if col.method="traficlight"}
+matrices. Must only be specified if col.method="trafficlight"}
 
 \item{col.method}{Method to use for color scaling the difference
-between the matrices. If method="traficlight" only two colors
+between the matrices. If method="trafficlight" only two colors
 are used, indicating whether the entries deviated at least by a
 difference of eps. If method="updown" a discrete gray scale is
 used.}
 
-\item{color}{Value of two color that are used if method="traficlight"}
+\item{color}{Value of two color that are used if method="trafficlight"}
 
 \item{top}{Specifies the main title of the plot}
 }
@@ -35,10 +35,15 @@ A diagnostic plot that compares the entries of two correlation
 matrices using a color scale.
 }
 \examples{
-### A simple example
-X0 <- start.matrix(p = c(0.1, 0.2, 0.3), k = 100)
-X <- iter.matrix(X0, R = diag(3))
-GA.diagplot(diag(3), Rt = X$Rt)
+R1 = diag(10)
+for (i in 1:10) {
+  for (j in 1:10) {
+    R[i,j] = 0.90^abs(i-j)
+}}
+X0 <- start.matrix(p=c(0.4, 0.2, 0.5, 0.15, 0.4, 0.35, 0.2, 0.25, 0.3, 0.4), k = 5000)
+X <- iter.matrix(X0, R=R1, T=5000, e.min = 1e-04)
+GA.diagplot(R1, Rt=X$Rt, col.method="trafficlight")
+GA.diagplot(R1, Rt=X$Rt, col.method="updown")
 }
 \author{
 Jochen Kruppa, Klaus Jung
