@@ -223,10 +223,6 @@ sequence.probs <- function(Xt) {
 ##' @export
 ##' @examples
 ##' R1 = diag(10)
-##' for (i in 1:10) {
-##'   for (j in 1:10) {
-##'     R1[i,j] = 0.90^abs(i-j)
-##' }}
 ##' X0 <- start_matrix(p=c(0.4, 0.2, 0.5, 0.15, 0.4, 0.35, 0.2, 0.25, 0.3, 0.4), k = 5000)
 ##' X <- iter_matrix(X0, R=R1, T=5000, e.min = 1e-04)
 ##' GA_diagplot(R1, Rt=X$Rt, col.method="trafficlight")
