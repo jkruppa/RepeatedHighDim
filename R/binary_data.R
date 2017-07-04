@@ -183,8 +183,8 @@ iter_matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
 ##' ### A simple example
 ##' X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
 ##' X <- iter_matrix(X0, R = diag(2))
-##' sequence.probs(Xt = X)
-sequence.probs <- function(Xt) {
+##' sequence_probs(Xt = X)
+sequence_probs <- function(Xt) {
   n = dim(Xt$Xt)[1]
   m = dim(Xt$Xt)[2]  
   binseq = rep("free", n)

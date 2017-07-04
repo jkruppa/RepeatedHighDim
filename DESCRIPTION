@@ -1,7 +1,7 @@
 Package: RepeatedHighDim
 Type: Package
 Title: Global tests for expression data of high-dimensional sets of molecular features.
-Version: 2.1.0.36
+Version: 2.1.0.38
 Authors@R: as.person(c(
     "Klaus Jung <Klaus.Jung@tiho-hannover.de> [aut, cre]", 
     "Jochen Kruppa <Jochen.Kruppa@tiho-hannover.de> [aut]"
