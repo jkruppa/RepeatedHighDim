@@ -264,19 +264,22 @@ GA_diagplot <- function(R, Rt, eps=0.05, col.method="trafficlight", color=c(0, 8
 ##' Description
 ##'
 ##' Details
-##' @title Title
-##' @param n 
-##' @param R 
-##' @param p 
-##' @return 
+##' @title Simulating correlated binary variables using the algorithm by Emrich and Piedmonte (1991) 
+##' @param n Number of wanted samples to be drawn
+##' @param R Correlation matrix
+##' @param p Vector of marginal frequencies
+##' @return A (n x p)-Matrix with with entries 0 and 1 according to
+##'   the specified marginal probabilities p.
 ##' @references Emrich, L.J., Piedmonte, M.R.: A method for generating
 ##'   highdimensional multivariate binary variates. The American
 ##'   Statistician 45(4), 302 (1991).
 ##' @author Jochen Kruppa, Klaus Jung
 ##' @export
 ##' @examples
-##' ## Here should be an example
+##' ## Generation of a random sample
+##' rmvbinary_EP(n = 10, R = diag(2), p = c(0.5, 0.6))
 rmvbinary_EP  <-  function(n, R, p){
+  require(mvtnorm)
   s0  <-  seq(-1, 1, 0.01)
   q  <-  1 - p
   K  <-  length(s0)
@@ -311,10 +314,12 @@ rmvbinary_EP  <-  function(n, R, p){
 ##' Description
 ##'
 ##' Details
-##' @title Title
-##' @param n 
-##' @param R 
-##' @param p 
+##' @title Simulating correlated binary variables using the algorithm by Qaqish (2003) 
+##' @param n Number of wanted samples to be drawn
+##' @param R Correlation matrix
+##' @param p Vector of marginal frequencies
+##' @return A (n x p)-Matrix with with entries 0 and 1 according to
+##'   the specified marginal probabilities p.
 ##' @return
 ##' @references Qaqish, B. F.: A family of multivariate binary
 ##'   distributions for simulating correlated binary variables with
@@ -323,8 +328,11 @@ rmvbinary_EP  <-  function(n, R, p){
 ##' @author Jochen Kruppa, Klaus Jung
 ##' @export
 ##' @examples
-##' ## Here should be an example
+##' ## Generation of a random sample
+##' rmvbinary_QA(n = 10, R = diag(2), p = c(0.5, 0.6))
 rmvbinary_QA  <-  function(n, R, p) {
+  require(mvtnorm)
+  d <- length(p)
   Y  <-  matrix(NA, n, d)
   for (k in 1:n) {
     y  <-  rep(NA, d)

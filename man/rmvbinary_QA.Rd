@@ -2,16 +2,20 @@
 % Please edit documentation in R/binary_data.R
 \name{rmvbinary_QA}
 \alias{rmvbinary_QA}
-\title{Title}
+\title{Simulating correlated binary variables using the algorithm by Qaqish (2003)}
 \usage{
 rmvbinary_QA(n, R, p)
 }
 \arguments{
-\item{n}{}
+\item{n}{Number of wanted samples to be drawn}
 
-\item{R}{}
+\item{R}{Correlation matrix}
 
-\item{p}{}
+\item{p}{Vector of marginal frequencies}
+}
+\value{
+A (n x p)-Matrix with with entries 0 and 1 according to
+  the specified marginal probabilities p.
 }
 \description{
 Description
@@ -20,7 +24,8 @@ Description
 Details
 }
 \examples{
-## Here should be an example
+## Generation of a random sample
+rmvbinary_QA(n = 10, R = diag(2), p = c(0.5, 0.6))
 }
 \references{
 Qaqish, B. F.: A family of multivariate binary

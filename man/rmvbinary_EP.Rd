@@ -2,16 +2,20 @@
 % Please edit documentation in R/binary_data.R
 \name{rmvbinary_EP}
 \alias{rmvbinary_EP}
-\title{Title}
+\title{Simulating correlated binary variables using the algorithm by Emrich and Piedmonte (1991)}
 \usage{
 rmvbinary_EP(n, R, p)
 }
 \arguments{
-\item{n}{}
+\item{n}{Number of wanted samples to be drawn}
 
-\item{R}{}
+\item{R}{Correlation matrix}
 
-\item{p}{}
+\item{p}{Vector of marginal frequencies}
+}
+\value{
+A (n x p)-Matrix with with entries 0 and 1 according to
+  the specified marginal probabilities p.
 }
 \description{
 Description
@@ -20,7 +24,8 @@ Description
 Details
 }
 \examples{
-## Here should be an example
+## Generation of a random sample
+rmvbinary_EP(n = 10, R = diag(2), p = c(0.5, 0.6))
 }
 \references{
 Emrich, L.J., Piedmonte, M.R.: A method for generating
