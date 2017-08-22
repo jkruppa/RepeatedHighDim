@@ -48,7 +48,7 @@ X0(t) is gets to V in step t X0(t) replaces X0(t-1).
 \examples{
 ### A simple example
 X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
-X <- iter_matrix(X0, R = diag(2))
+Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
 }
 \author{
 Jochen Kruppa, Klaus Jung

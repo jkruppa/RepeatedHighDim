@@ -29,8 +29,8 @@ determined.
 \examples{
 ### A simple example
 X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
-X <- iter_matrix(X0, R = diag(2))
-sequence_probs(Xt = X)
+Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+sequence_probs(Xt = Xt)
 }
 \author{
 Jochen Kruppa, Klaus Jung

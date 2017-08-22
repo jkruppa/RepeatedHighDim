@@ -25,8 +25,8 @@
 ##' R <- diag(4)
 ##' p <- c(0.1, 0.2, 0.4, 0.5)
 ##' 
-##' rho_bounds(p, R)
-rho_bounds <- function(p, R=diag(length(p))) {
+##' rho_bounds(R, p)
+rho_bounds <- function(R=diag(length(p)), p) {
   n = dim(R)[1]
   m = dim(R)[2]
   if (n!=m || R!=t(R)) {
@@ -114,7 +114,7 @@ start_matrix <- function(p, k) {
 ##' @examples
 ##' ### A simple example
 ##' X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
-##' X <- iter_matrix(X0, R = diag(2))
+##' Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
 iter_matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
   n = dim(X0)[1]
   m = dim(X0)[2]
@@ -182,8 +182,8 @@ iter_matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
 ##' @examples
 ##' ### A simple example
 ##' X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
-##' X <- iter_matrix(X0, R = diag(2))
-##' sequence_probs(Xt = X)
+##' Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+##' sequence_probs(Xt = Xt)
 sequence_probs <- function(Xt) {
   n = dim(Xt$Xt)[1]
   m = dim(Xt$Xt)[2]  
@@ -224,9 +224,9 @@ sequence_probs <- function(Xt) {
 ##' @examples
 ##' R1 = diag(10)
 ##' X0 <- start_matrix(p=c(0.4, 0.2, 0.5, 0.15, 0.4, 0.35, 0.2, 0.25, 0.3, 0.4), k = 5000)
-##' X <- iter_matrix(X0, R=R1, T=5000, e.min = 1e-04)
-##' GA_diagplot(R1, Rt=X$Rt, col.method="trafficlight")
-##' GA_diagplot(R1, Rt=X$Rt, col.method="updown")
+##' Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+##' GA_diagplot(R1, Rt = Xt$Rt, col.method = "trafficlight")
+##' GA_diagplot(R1, Rt = Xt$Rt, col.method = "updown")
 GA_diagplot <- function(R, Rt, eps=0.05, col.method="trafficlight", color=c(0, 8), top="") {
   rotate = function(x) t(apply(x, 2, rev))
   D = R - Rt
