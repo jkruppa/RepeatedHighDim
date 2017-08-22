@@ -112,9 +112,12 @@ start_matrix <- function(p, k) {
 ##' @author Jochen Kruppa, Klaus Jung
 ##' @export
 ##' @examples
-##' ### A simple example
-##' X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
+##' ### Generation of the representive matrix Xt
+##' X0 <- start_matrix(p = c(0.5, 0.6), k = 1000)
 ##' Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+##'
+##' ### Drawing of a random sample S of size n = 10
+##' S <- Xt[sample(1:1000, 10, replace = TRUE)]
 iter_matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
   n = dim(X0)[1]
   m = dim(X0)[2]
@@ -180,9 +183,11 @@ iter_matrix <- function(X0, R, T=1000, e.min=.0001, plt=TRUE, perc=TRUE) {
 ##' @author Jochen Kruppa, Klaus Jung
 ##' @export
 ##' @examples
-##' ### A simple example
-##' X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
+##' ### Generation of the representive matrix Xt
+##' X0 <- start_matrix(p = c(0.5, 0.6), k = 1000)
 ##' Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+##'
+##' ### Calculation of probabilities for binary sequences
 ##' sequence_probs(Xt = Xt)
 sequence_probs <- function(Xt) {
   n = dim(Xt$Xt)[1]
@@ -255,3 +260,93 @@ GA_diagplot <- function(R, Rt, eps=0.05, col.method="trafficlight", color=c(0, 8
   for (i in 2:m) text(0.5, m-0.5-(i-1), i)
   box()
 }
+
+##' Description
+##'
+##' Details
+##' @title Title
+##' @param n 
+##' @param R 
+##' @param p 
+##' @return 
+##' @references Emrich, L.J., Piedmonte, M.R.: A method for generating
+##'   highdimensional multivariate binary variates. The American
+##'   Statistician 45(4), 302 (1991).
+##' @author Jochen Kruppa, Klaus Jung
+##' @export
+##' @examples
+##' ## Here should be an example
+rmvbinary_EP  <-  function(n, R, p){
+  s0  <-  seq(-1, 1, 0.01)
+  q  <-  1 - p
+  K  <-  length(s0)
+  d  <-  dim(R)[1]
+  S  <-  matrix(NA, d, d)
+  S2  <-  matrix(NA, d, d)
+  for (i in 1:d) {
+    for (j in 1:d) {
+      right  <-  R[i,j] * sqrt(p[i] * q[i] * p[j] * q[j]) + (p[i] * p[j])
+      left  <-  rep(NA, K)
+      for (k in 1:K) {
+        S0  <-  diag(2)
+        S0[1,2]  <-  s0[k]
+        S0[2,1]  <-  s0[k]
+        zi  <-  qnorm(p[i], 0, 1)
+        zj  <-  qnorm(p[j], 0, 1)
+        left[k]  <-  pmvnorm(lower = c(-Inf, -Inf),
+                             upper=c(zi, zj),
+                             mean=c(0, 0),
+                             corr=S0)
+      }
+      difference  <-  abs(left - right)
+      if (R[i,j]<0) S[i,j]  <-  s0[min(which(difference == min(difference)))]
+      if (R[i,j]>=0) S[i,j]  <-  s0[max(which(difference == min(difference)))]
+    }}
+  X0  <-  rmvnorm(n, mean = rep(0, d), sigma = S)
+  X  <-  matrix(0, n, d)
+  for (j in 1:d) X[which(X0[,j] <= qnorm(p[j], 0, 1)),j]  <-  1
+  return(X)
+}
+
+##' Description
+##'
+##' Details
+##' @title Title
+##' @param n 
+##' @param R 
+##' @param p 
+##' @return
+##' @references Qaqish, B. F.: A family of multivariate binary
+##'   distributions for simulating correlated binary variables with
+##'   specified marginal means and correlations, Biometrika 90 (2),
+##'   455-463 (2003)
+##' @author Jochen Kruppa, Klaus Jung
+##' @export
+##' @examples
+##' ## Here should be an example
+rmvbinary_QA  <-  function(n, R, p) {
+  Y  <-  matrix(NA, n, d)
+  for (k in 1:n) {
+    y  <-  rep(NA, d)
+    y[1]  <-  rbinom(1, 1, p[1])
+    d  <-  dim(R)[1]
+    q  <-  p * (1 - p)
+    G  <-  matrix(NA, d, d)
+    for (i in 1:d) {
+      for (j in 1:d) {
+        G[i,j]  <-  R[i,j] * sqrt(q[i] * q[j])
+      }}
+    for (j in 2:d) {
+      Gj  <-  G[1:(j-1),1:(j-1)]
+      sj  <-  G[1:(j-1),j]
+      bj  <-  solve(Gj) %*% sj
+      lambdaj  <-  p[j] + sum(bj * (y[1:(j-1)] - p[1:(j-1)]))
+      y[j]  <-  rbinom(1, 1, lambdaj)
+                               }
+    Y[k,]  <-  y
+  }
+  return(Y)
+}
+
+
+

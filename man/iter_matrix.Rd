@@ -46,9 +46,12 @@ marginal probabilities do not change. If the correlation matrix of
 X0(t) is gets to V in step t X0(t) replaces X0(t-1).
 }
 \examples{
-### A simple example
-X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
+### Generation of the representive matrix Xt
+X0 <- start_matrix(p = c(0.5, 0.6), k = 1000)
 Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+
+### Drawing of a random sample S of size n = 10
+S <- Xt[sample(1:1000, 10, replace = TRUE)]
 }
 \author{
 Jochen Kruppa, Klaus Jung

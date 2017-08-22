@@ -27,9 +27,11 @@ genetic algorithm the probability for each binary sequence is
 determined.
 }
 \examples{
-### A simple example
-X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
+### Generation of the representive matrix Xt
+X0 <- start_matrix(p = c(0.5, 0.6), k = 1000)
 Xt <- iter_matrix(X0, R = diag(2), T = 100, e.min = 0.001)
+
+### Calculation of probabilities for binary sequences
 sequence_probs(Xt = Xt)
 }
 \author{
