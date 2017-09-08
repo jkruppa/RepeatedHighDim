@@ -7,12 +7,12 @@
 start_matrix(p, k)
 }
 \arguments{
-\item{p}{Marginal probabilities of the start matrix}
+\item{p}{Marginal probabilities of the start matrix.}
 
-\item{k}{Number of rows to be generated}
+\item{k}{Number of rows to be generated.}
 }
 \value{
-A (n x p)-Matrix with with entries 0 and 1 according to
+A (k x p)-Matrix with with entries 0 and 1 according to
   the specified marginal probabilities p.
 }
 \description{
@@ -23,11 +23,14 @@ probabilities p.
 The start matrix needs to be setup for further use in the genetic
 algorithm implemented in the function \code{\link{iter_matrix}}. For
 high-dimensional cases or if the marginal probabilities have
-multiple decimal places, the number n of rows should be large (up
+multiple decimal places, the number k of rows should be large (up
 to multiple thousand).
 }
 \examples{
-X0 <- start_matrix(p = c(0.5, 0.6), k = 100)
+X0 <- start_matrix(p = c(0.5, 0.6), k = 10000)
+
+## check if p can be restored
+apply(X0, 2, mean)
 }
 \author{
 Jochen Kruppa, Klaus Jung

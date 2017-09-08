@@ -15,7 +15,7 @@ rmvbinary_EP(n, R, p)
 \item{p}{Vector of marginal probabilities}
 }
 \value{
-An (n x p)-matrix with representing a random sample of size n from the specified multivariate binary distribution.
+Sample (n x p)-matrix with representing a random sample of size n from the specified multivariate binary distribution.
 }
 \description{
 Generation of random sample of binary correlated variables

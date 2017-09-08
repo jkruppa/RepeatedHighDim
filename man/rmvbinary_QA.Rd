@@ -15,7 +15,7 @@ rmvbinary_QA(n, R, p)
 \item{p}{Vector of marginal probabilities}
 }
 \value{
-An (n x p)-matrix representing a random sample of size n
+Sample (n x p)-matrix representing a random sample of size n
   from the specified multivariate binary distribution.
 }
 \description{
