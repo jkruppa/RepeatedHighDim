@@ -2,26 +2,33 @@
 % Please edit documentation in R/binary_data.R
 \name{rmvbinary_EP}
 \alias{rmvbinary_EP}
-\title{Simulating correlated binary variables using the algorithm by Emrich and Piedmonte (1991)}
+\title{Simulating correlated binary variables using the algorithm
+  by Emrich and Piedmonte (1991)}
 \usage{
 rmvbinary_EP(n, R, p)
 }
 \arguments{
-\item{n}{Number of wanted samples to be drawn}
+\item{n}{Sample size}
 
 \item{R}{Correlation matrix}
 
-\item{p}{Vector of marginal frequencies}
+\item{p}{Vector of marginal probabilities}
 }
 \value{
-A (n x p)-Matrix with with entries 0 and 1 according to
-  the specified marginal probabilities p.
+An (n x p)-matrix with representing a random sample of size n from the specified multivariate binary distribution.
 }
 \description{
-Description
+Generation of random sample of binary correlated variables
 }
 \details{
-Details
+The function implements the algorithm proposed by Emrich and
+Piedmonte (1991) to generate a random sample of d (=length(p))
+correlated binary variables. The sample is generated based on
+given marginal probabilities p of the d variables and their
+correlation matrix R. The algorithm generates first determines an
+appropriate correlation matrix R' for the multivariate normal
+distribution. Next, a sample is drawn from N_d(0, R') and each
+variable is finnaly dichotomized with respect to p.
 }
 \examples{
 ## Generation of a random sample

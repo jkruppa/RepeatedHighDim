@@ -261,15 +261,22 @@ GA_diagplot <- function(R, Rt, eps=0.05, col.method="trafficlight", color=c(0, 8
   box()
 }
 
-##' Description
+##' Generation of random sample of binary correlated variables
 ##'
-##' Details
-##' @title Simulating correlated binary variables using the algorithm by Emrich and Piedmonte (1991) 
-##' @param n Number of wanted samples to be drawn
+##' The function implements the algorithm proposed by Emrich and
+##' Piedmonte (1991) to generate a random sample of d (=length(p))
+##' correlated binary variables. The sample is generated based on
+##' given marginal probabilities p of the d variables and their
+##' correlation matrix R. The algorithm generates first determines an
+##' appropriate correlation matrix R' for the multivariate normal
+##' distribution. Next, a sample is drawn from N_d(0, R') and each
+##' variable is finnaly dichotomized with respect to p.
+##' @title Simulating correlated binary variables using the algorithm
+##'   by Emrich and Piedmonte (1991)
+##' @param n Sample size
 ##' @param R Correlation matrix
-##' @param p Vector of marginal frequencies
-##' @return A (n x p)-Matrix with with entries 0 and 1 according to
-##'   the specified marginal probabilities p.
+##' @param p Vector of marginal probabilities
+##' @return An (n x p)-matrix with representing a random sample of size n from the specified multivariate binary distribution.
 ##' @references Emrich, L.J., Piedmonte, M.R.: A method for generating
 ##'   highdimensional multivariate binary variates. The American
 ##'   Statistician 45(4), 302 (1991).
@@ -311,16 +318,23 @@ rmvbinary_EP  <-  function(n, R, p){
   return(X)
 }
 
-##' Description
+##' Generation of random sample of binary correlated variables
 ##'
-##' Details
-##' @title Simulating correlated binary variables using the algorithm by Qaqish (2003) 
-##' @param n Number of wanted samples to be drawn
+##' The function implements the algorithm proposed by Qaqish (2003) to
+##' generate a random sample of d (=length(p)) correlated binary
+##' variables. The sample is generated based on given marginal
+##' probabilities p of the d variables and their correlation matrix
+##' R. The algorithm starts by generating a data for the first
+##' variable X_1 and generates succesively the data for X_2, ... based
+##' on their conditional probabilities P(X_j|X_[i-1],...,X_1),
+##' j=1,...,d.
+##' @title Simulating correlated binary variables using the algorithm
+##'   by Qaqish (2003)
+##' @param n Sample size
 ##' @param R Correlation matrix
-##' @param p Vector of marginal frequencies
-##' @return A (n x p)-Matrix with with entries 0 and 1 according to
-##'   the specified marginal probabilities p.
-##' @return
+##' @param p Vector of marginal probabilities
+##' @return An (n x p)-matrix representing a random sample of size n
+##'   from the specified multivariate binary distribution.
 ##' @references Qaqish, B. F.: A family of multivariate binary
 ##'   distributions for simulating correlated binary variables with
 ##'   specified marginal means and correlations, Biometrika 90 (2),

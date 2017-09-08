@@ -2,26 +2,34 @@
 % Please edit documentation in R/binary_data.R
 \name{rmvbinary_QA}
 \alias{rmvbinary_QA}
-\title{Simulating correlated binary variables using the algorithm by Qaqish (2003)}
+\title{Simulating correlated binary variables using the algorithm
+  by Qaqish (2003)}
 \usage{
 rmvbinary_QA(n, R, p)
 }
 \arguments{
-\item{n}{Number of wanted samples to be drawn}
+\item{n}{Sample size}
 
 \item{R}{Correlation matrix}
 
-\item{p}{Vector of marginal frequencies}
+\item{p}{Vector of marginal probabilities}
 }
 \value{
-A (n x p)-Matrix with with entries 0 and 1 according to
-  the specified marginal probabilities p.
+An (n x p)-matrix representing a random sample of size n
+  from the specified multivariate binary distribution.
 }
 \description{
-Description
+Generation of random sample of binary correlated variables
 }
 \details{
-Details
+The function implements the algorithm proposed by Qaqish (2003) to
+generate a random sample of d (=length(p)) correlated binary
+variables. The sample is generated based on given marginal
+probabilities p of the d variables and their correlation matrix
+R. The algorithm starts by generating a data for the first
+variable X_1 and generates succesively the data for X_2, ... based
+on their conditional probabilities P(X_j|X_[i-1],...,X_1),
+j=1,...,d.
 }
 \examples{
 ## Generation of a random sample
